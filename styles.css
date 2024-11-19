@@ -1,248 +1,120 @@
-@import 'https://unpkg.com/open-props' layer(design.system);
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f3f4f6; /* 浅灰背景 */
+  color: #343a40; /* 深灰文字 */
+  margin: 0;
+  padding: 0;
+}
 
-    @import 'https://unpkg.com/open-props/normalize.dark.min.css'
-    layer(base.normalize);
+h1 {
+  background-color: #007bff; /* 蓝色背景 */
+  color: white; /* 白色文字 */
+  text-align: center;
+  padding: 20px 0;
+  margin: 0;
+  font-size: 28px;
+  text-transform: uppercase;
+}
 
-    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@200..900&family=Pacifico&display=swap');
+h2 {
+  color: #007bff; /* 蓝色标题 */
+  text-align: center;
+  margin-top: 20px;
+}
 
-    @layer base.override-normalize {
-      :root {
-        font-family: 'Inter', sans-serif;
-        --surface-1: oklch(0 0 0);
-        --text-1: oklch(0.97 0 0);
-        --text-2: oklch(0.73 0 0);
-        --link-visited: oklch(0.73 0 0);
-      }
+fieldset {
+  background-color: white;
+  border: 1px solid #dee2e6;
+  border-radius: 8px;
+  padding: 15px;
+  max-width: 600px;
+  margin: 20px auto;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* 轻微阴影 */
+}
 
-      a {
-        color: var(--text-2);
-        display: flex;
-        gap: var(--size-1);
-      }
-    }
+legend {
+  font-weight: bold;
+  font-size: 18px;
+  color: #495057;
+}
 
-    @layer base.utilities {
+label {
+  font-weight: bold;
+  color: #495057;
+  display: block;
+  margin-bottom: 8px;
+}
 
-      :where(.rounded) {
-        --_rounded: initial;
-        border-radius: var(--_rounded, var(--radius-2));
-      }
+input[type="text"], input[type="number"] {
+  width: calc(100% - 20px);
+  padding: 8px 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ced4da;
+  border-radius: 4px;
+  font-size: 16px;
+  box-sizing: border-box;
+}
 
+button {
+  background-color: #007bff;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
 
-      :where(.padding) {
-        --_padding: initial;
-        --_padding-inline: initial;
-        --_padding-block: initial;
+button:hover {
+  background-color: #0056b3; /* 深蓝色 */
+}
 
-        padding-inline: var(--_padding-inline, var(--_padding, var(--size-3)));
-        padding-block: var(--_padding-block, var(--_padding, var(--size-3)));
-      }
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
 
-      :where(.margin) {
-        --_margin: initial;
-        --_margin-inline: initial;
-        --_margin-block: initial;
+th, td {
+  text-align: left;
+  padding: 10px;
+  border: 1px solid #dee2e6;
+}
 
-        margin-inline: var(--_margin-inline, var(--_margin, var(--size-3)));
-        margin-block: var(--_margin-block, var(--_margin, var(--size-3)));
-      }
+th {
+  background-color: #f8f9fa;
+  font-weight: bold;
+}
 
-      :where(.inline) {
-        --_gap: initial;
-        display: flex;
-        align-items: center;
-        gap: var(--_gap, var(--size-3));
-      }
+td {
+  background-color: #ffffff;
+}
 
-      :where(.inline-wrap) {
-        --_gap: initial;
-        display: flex;
-        flex-wrap: wrap;
-        align-items: center;
-        gap: var(--_gap, var(--size-3));
-      }
+#total_deposit {
+  background-color: #f8f9fa;
+  border: 1px solid #dee2e6;
+  border-radius: 8px;
+  padding: 15px;
+  max-width: 600px;
+  font-size: 16px;
+  line-height: 1.6;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  margin: 20px auto;
+}
 
-      :where(.block) {
-        --_gap: initial;
-        display: grid;
-        gap: var(--_gap, var(--size-3));
-      }
+#total_deposit span {
+  display: block;
+  margin-bottom: 10px;
+}
 
-      :where(.surface) {
-        --_surface: initial;
-        background: var(--_surface, var(--surface-2));
-      }
+#total_deposit b {
+  color: #28a745; /* 强调金额，使用绿色 */
+  font-size: 18px;
+}
 
-      :where(.shadow) {
-        --_shadow: initial;
-        box-shadow: var(--_shadow, var(--shadow-3));
-      }
-
-      :where(.border) {
-        --_border-size: initial;
-        --_border-style: initial;
-        --_border-color: initial;
-
-        border: var(--_border-size, var(--border-size-1)) var(--_border-style, solid) var(--_border-color, var(--surface-2));
-
-        &:where(.surface) {
-          --_border-color: var(--surface-3);
-        }
-      }
-
-      :where(.container) {
-        --_container: ;
-        max-inline-size: var(--_container, var(--content-2));
-      }
-
-      :where(.scroll) {
-        --_scroll: initial;
-        --_scroll-x: initial;
-        --_scroll-y: initial;
-
-        overflow: var(--_scroll-x, var(--_scroll, auto)) var(--_scroll-y, var(--_scroll, auto));
-      }
-
-      :where(.snaps) {
-        --_snap-strictness: initial;
-        scroll-snap-type: both var(--_snap-strictness, mandatory);
-      }
-
-      :where(.snaps-x) {
-        --_snap-strictness: initial;
-        scroll-snap-type: x var(--_snap-strictness, mandatory);
-      }
-
-      :where(.snaps-y) {
-        --_snap-strictness: initial;
-        scroll-snap-type: y var(--_snap-strictness, mandatory);
-      }
-
-      :where(.snap) {
-        --_snap: initial;
-        scroll-snap-align: var(--_snap, center);
-      }
-
-      :where(.snap-stop) {
-        scroll-snap-stop: always;
-      }
-
-      :where(.truncate) {
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
-      }
-
-      :where(.visually-hidden, .sr-only) {
-        inline-size: 0;
-        block-size: 0;
-        overflow: hidden;
-      }
-
-
-    }
-
-    @layer base.demo {
-      .Section {
-        --_padding-block: var(--size-6);
-        --_gap: var(--size-8);
-
-        justify-items: center;
-        align-content: start;
-        grid-template-rows: auto 1fr;
-        min-block-size: 100dvh;
-      }
-
-      .RankContainer {
-        --_column: 2;
-        --_container: 900px;
-        align-items: center;
-
-        grid-template-columns: repeat(var(--_column), 1fr);
-        gap: var(--size-8);
-
-        @media (width > 1280px) {
-          --_container: 1200px;
-        }
-
-        @media (width < 600px) {
-          --_column: 1;
-        }
-      }
-
-      .Button {
-        --_border-size: var(--border-size-3);
-        --_border-color: var(--gray-10);
-        --_rounded: var(--radius-3);
-
-        position: relative;
-        aspect-ratio: var(--ratio-square);
-        padding: 0;
-        background: var(--gradient-8);
-
-        &:hover {
-          outline: var(--border-size-2) solid var(--link);
-          transition: outline-offset 145ms var(--ease-2);
-        }
-
-        &:not(:active):hover {
-          outline-offset: 5px;
-        }
-
-        &::after {
-          content: '';
-          position: absolute;
-          inset: 0;
-
-          background-image: var(--gradient-8);
-          background-repeat: no-repeat;
-          background-position: center;
-          z-index: var(--layer-3);
-
-
-          animation: var(--animation-fade-out) 1s forwards;
-        }
-      }
-
-      .ImgContainer {
-        outline: var(--border-size-2) solid transparent;
-
-        >* {
-          grid-area: 1/1;
-        }
-      }
-
-      /* add 2024.3.21*/
-      .ImgContainer img:nth-of-type(2) {
-        margin-top: -10px;
-      }
-
-      .ImgContainer img:nth-of-type(1) {
-        margin-top: -160px;
-      }
-
-      /* 调整图片6的位置
-      .ImgContainer img[alt="6"] {
-        height: auto;
-        width: 100%;
-        object-fit: fill;
-      } */
-
-
-      .Wrapper {
-        justify-items: center;
-        --_gap: var(--size-3);
-      }
-    }
-
-    .fade-out {
-      animation: fade-out 0.25s forwards;
-    }
-
-
-    @keyframes fade-out {
-      100% {
-        opacity: 0;
-        visibility: hidden;
-      }
-    }
+#total_deposit .title {
+  font-weight: bold;
+  color: #343a40;
+  font-size: 18px;
+}

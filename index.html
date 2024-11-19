@@ -1,41 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8">
-  <title>xjcpp</title>
-  <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZYC BANK</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
-
 <body>
+    <h1>ZYC Bank</h1>
+    <h2>Query Bank Deposits</h2>
+    <fieldset>
+        <legend>Query Deposits</legend>
+        <label>Bank Name: <input type="text" id="query_deposit_bank_name"></label><br>
+        <button onclick="getBankDeposits()">Get Deposits</button>
+        <table id="deposit_table" border="1">
+            <tr>
+                <th>Principal (USD)</th>
+                <th>Principal (CNY)</th>
+                <th>Interest_rate (%)</th>
+                <th>Interest (USD)</th>
+                <th>Interest (CNY)</th>
+                <th>Deposit Date</th>
+            </tr>
+        </table>
+        <p id="total_deposit">
+            <span>Total principal: USD <b>0</b>, CNY <b>0</b></span><br>
+            <span>Total interest: USD <b>0</b>, CNY <b>0</b></span><br>
+            <span>Total amount: USD <b>0</b>, CNY <b>0</b></span>
+        </p>
+    </fieldset>
+    <h2>Currency Conversion</h2>
+    <fieldset>
+        <legend>Convert USD and CNY</legend>
+        <label>USD: <input type="number" id="usd_amount" oninput="convertCurrency('usd')"></label><br>
+        <label>CNY: <input type="number" id="cny_amount" oninput="convertCurrency('cny')"></label><br>
+        <p>Exchange Rate (Real-Time): <span id="exchange_rate">Loading...</span></p>
+    </fieldset>
 
-  <section class="Section block padding">
-    <header class="Header inline">
-    </header>
-    <div class="Wrapper block">
-      <div class="RankContainer container block">
-        <button class="Button rounded border truncate">
-          <div class="ImgContainer block">
-
-            <!-- <img src="picture/1.webp" alt="1"> -->
-            <img src="picture/3.webp" alt="3">
-            <img src="picture/5.png" alt="5">
-          </div>
-        </button>
-        <button class="Button rounded border truncate">
-          <div class="ImgContainer block">
-
-            <!-- <img src="picture/2.webp" alt="2" /> -->
-            <img src="picture/4.webp" alt="4" />
-            <img src="picture/6.png" alt="6">
-          </div>
-        </button>
-      </div>
-    </div>
-  </section>
-
-  <script src="script.js"></script>
-
+    <script src="script.js"></script>
 </body>
-
 </html>
