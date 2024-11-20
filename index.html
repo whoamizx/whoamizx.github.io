@@ -8,6 +8,11 @@
 </head>
 <body>
     <h1>ZYC Bank</h1>
+    <h2>Real-Time Total Deposits</h2>
+    <div id="total_amount_display" style="background-color: #f8f9fa; border: 1px solid #dee2e6; border-radius: 8px; padding: 15px; max-width: 400px; margin: 20px auto; font-size: 18px; text-align: center; box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);">
+        <p>Total Amount (USD): <span id="total_amount_usd">Loading...</span></p>
+        <p>Total Amount (CNY): <span id="total_amount_cny">Loading...</span></p>
+    </div>
     <h2>Query Bank Deposits</h2>
     <fieldset>
         <legend>Query Deposits</legend>
@@ -29,14 +34,6 @@
             <span>Total amount: USD <b>0</b>, CNY <b>0</b></span>
         </p>
     </fieldset>
-    <h2>Currency Conversion</h2>
-    <fieldset>
-        <legend>Convert USD and CNY</legend>
-        <label>USD: <input type="number" id="usd_amount" oninput="convertCurrency('usd')"></label><br>
-        <label>CNY: <input type="number" id="cny_amount" oninput="convertCurrency('cny')"></label><br>
-        <p>Exchange Rate (Real-Time): <span id="exchange_rate">Loading...</span></p>
-    </fieldset>
-
     <script src="script.js"></script>
 </body>
 </html>

@@ -1,4 +1,4 @@
-let exchangeRate = 7.2; // 默认汇率（USD => CNY）
+let exchangeRate = 7.23; // 默认汇率（USD => CNY）
 
 async function fetchExchangeRate() {
     try {
@@ -95,3 +95,24 @@ async function getBankDeposits() {
         alert("Failed to fetch data. Please try again later.");
     }
 }
+
+// 定时获取总存款金额并更新显示
+async function fetchTotalDeposits() {
+    try {
+        const response = await fetch('http://121.43.53.190:5000/total_deposit'); // 调用后端 API
+        const result = await response.json();
+
+        // 更新页面显示的总金额
+        document.getElementById('total_amount_usd').innerText = `$${result.total_amount_usd}`;
+        document.getElementById('total_amount_cny').innerText = `¥${result.total_amount_cny}`;
+    } catch (error) {
+        console.error('Error fetching total deposits:', error);
+    }
+}
+
+// 每5秒刷新一次总金额
+setInterval(fetchTotalDeposits, 5000);
+
+// 页面加载时立即获取总金额
+fetchTotalDeposits();
+
